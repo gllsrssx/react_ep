@@ -1,8 +1,7 @@
 import React from 'react';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
-import { db } from './firebase'
-import { uid } from "uuid"
+import "./services/firebase"
 
 function App() {
     return (
