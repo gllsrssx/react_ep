@@ -9,7 +9,7 @@ function AddCommentForm({ addComment }) {
         addComment(commentText);
         setCommentText('');
     }; 
-    
+
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -28,5 +28,6 @@ function AddCommentForm({ addComment }) {
         </Form>
     );
 }
+
 
 export default AddCommentForm;
