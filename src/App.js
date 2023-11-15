@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import TaskList from './components/TaskList';
-import AddTaskForm from './components/AddTaskForm';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -21,10 +17,7 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <AddTaskForm onAdd={handleAdd} />
-      <TaskList tasks={tasks} onToggle={handleToggle} onDelete={handleDelete} />
-      <Footer />
+      
     </div>
   );
 }
