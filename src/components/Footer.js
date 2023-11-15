@@ -1,12 +1,9 @@
-// Footer.js
 import React from 'react';
 
-function Footer() {
+export function Footer() {
     return (
-        <footer>
-            <p>© 2022 Our Blog. All rights reserved.</p>
-        </footer>
+        <div className="footerContainer">
+            <p className="footerText">Copyright &copy; Movie Rental 2023</p>
+        </div>
     );
 }
-
-export default Footer;
