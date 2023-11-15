@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogPost from './BlogPost';
 
-function PostList({ posts }) {
+function BlogList({ posts = [] }) {
     return (
         <div>
             {posts.map((post) => (
@@ -11,4 +11,4 @@ function PostList({ posts }) {
     );
 }
 
-export default PostList;
+export default BlogList;
