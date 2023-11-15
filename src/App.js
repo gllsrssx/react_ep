@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import TaskList from './TaskList';
-import AddTaskForm from './AddTaskForm';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import TaskList from './components/TaskList';
+import AddTaskForm from './components/AddTaskForm';
 
 function App() {
   const [tasks, setTasks] = useState([]);
