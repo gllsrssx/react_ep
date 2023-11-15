@@ -5,6 +5,7 @@ import {Faq} from './Faq';
 import {ContactUs} from "./ContactUs";
 import {Reviews} from "./Reviews";
 import Socials from "./Socials";
+import Error from "./Error";
 
 export function Navigation() {
     const [currentComponent, setCurrentComponent] = useState('home');
@@ -23,6 +24,8 @@ export function Navigation() {
                 return <Socials />;
             case 'reviews':
                 return <Reviews />;
+            default:
+                return <Error setCurrentComponent={setCurrentComponent} />;
         }
     }
 
