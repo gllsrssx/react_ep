@@ -8,7 +8,8 @@ function AddCommentForm({ addComment }) {
         event.preventDefault();
         addComment(commentText);
         setCommentText('');
-    };
+    }; 
+    
 
     return (
         <Form onSubmit={handleSubmit}>
