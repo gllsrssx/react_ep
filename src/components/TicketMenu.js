@@ -5,6 +5,7 @@ import {Cart} from "./Cart";
 import {Filter} from "./MovieFilter";
 
 export function TicketMenu() {
+    const [originalFilms] = useState(FILM_DATA);
     const [films, setFilms] = useState(FILM_DATA);
     const [selectedFilms, setSelectedFilms] = useState([]);
 
@@ -17,15 +18,17 @@ export function TicketMenu() {
     }
 
     return (
-        <div className="ticketMenuContainer">
-            <Filter films={films} onFilter={handleFilteredFilms} />
-            <div className="filmsContainer">
-                {films.map(film => (
-                    <Ticket film={film} addFilm={addFilm} />
-                ))}
+        <>
+            <br/>
+            <Filter films={originalFilms} onFilter={handleFilteredFilms} />
+            <div className="ticketMenuContainer">
+                <div className="filmsContainer">
+                    {films.map(film => (
+                        <Ticket film={film} addFilm={addFilm} />
+                    ))}
+                </div>
+                {selectedFilms.length !== 0 && <Cart films={selectedFilms} />}
             </div>
-            {selectedFilms.length !== 0 && <Cart films={selectedFilms} />}
-        </div>
+        </>
     );
-
 }
