@@ -1,30 +1,39 @@
-import React from 'react';
-
-const sampleReviews = [
-    {
-        name: "John Doe",
-        rating: 4,
-        review: "This webapp has a great selection of movies and is very user-friendly."
-    },
-    {
-        name: "Jane Doe",
-        rating: 5,
-        review: "I love using this webapp to rent movies. The interface is so easy to use!"
-    },
-    {
-        name: "Bob Smith",
-        rating: 3,
-        review: "The movie selection could be better, but overall a decent webapp."
-    }
-];
+import React, { useState, useEffect } from 'react';
+import { sampleReviews } from '../data/data';
 
 export function Reviews() {
+    const [reviews, setReviews] = useState(
+        () => JSON.parse(localStorage.getItem('reviews')) || sampleReviews
+    );
+    const [name, setName] = useState('');
+    const [rating, setRating] = useState(1);
+    const [review, setReview] = useState('');
+
+    useEffect(() => {
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+    }, [reviews]);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const newReview = { name, rating, review };
+        setReviews([newReview, ...reviews]);
+        setName('');
+        setRating(5);
+        setReview('');
+    };
+
     return (
         <div className="reviewContainer">
             <h2 className="reviewTitle">Reviews</h2>
+            <form onSubmit={handleSubmit}>
+                <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Your name" required />
+                <input type="number" min="1" max="5" value={rating} onChange={e => setRating(e.target.value)} required />
+                <textarea value={review} onChange={e => setReview(e.target.value)} placeholder="Your review" required />
+                <button type="submit">Submit</button>
+            </form>
             <div className="reviews">
-                {sampleReviews.map(review => (
-                    <div className="review">
+                {reviews.map((review, index) => (
+                    <div key={index} className="review">
                         <h3 className="reviewName">{review.name}</h3>
                         <p className="reviewRating">Rating: {review.rating}</p>
                         <p className="reviewText">{review.review}</p>
