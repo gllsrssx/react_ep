@@ -4,21 +4,18 @@ import { Container, Row, Col } from "react-bootstrap";
 function Socials() {
     return (
         <Container className="socialsContainer">
-            <Row className="socialsRow">
-                <Col xs={12} className="socialsCol">
-                    <p className="socialsTitle">Connect with us:</p>
+            <Row className="socialsRow justify-content-md-center">
+                <Col xs={12} md={8} className="socialsCol">
+                    <h2 className="text-center">Connect with us:</h2>
                     <p className="socialsInfo">
-                        <span className="socialsEmail">Email: LunaMovies@outlook.com</span>
+                        <span className="d-block">Email: LunaMovies@outlook.com</span>
                         <br />
-                        <span className="socialsPhone">Phone: +32 468 13 35 12</span>
+                        <span className="d-block">Phone: +32 468 13 35 12</span>
                         <br />
-                        <span className="socialsInstagram">
-              Instagram: @LunaMovies
-            </span>
+                        <span className="d-block">Instagram: @LunaMovies</span>
                         <br />
-                        <span className="socialsFacebook">
-              Facebook: LunaMovies
-            </span>
+                        <span className="d-block">Facebook: LunaMovies</span>
+                        <br />
                     </p>
                 </Col>
             </Row>
