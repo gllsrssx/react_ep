@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Homepage from './Homepage';
 import {TicketMenu} from './TicketMenu';
 import {Faq} from './Faq';
@@ -6,9 +6,14 @@ import {ContactUs} from "./ContactUs";
 import {Reviews} from "./Reviews";
 import Socials from "./Socials";
 import Error from "./Error";
+import Donate from "./Donate";
 
 export function Navigation() {
-    const [currentComponent, setCurrentComponent] = useState('home');
+    const [currentComponent, setCurrentComponent] = useState(localStorage.getItem('currentComponent') || 'home');
+
+    useEffect(() => {
+        localStorage.setItem('currentComponent', currentComponent);
+    }, [currentComponent]);
 
     function renderComponent() {
         switch (currentComponent) {
@@ -24,6 +29,8 @@ export function Navigation() {
                 return <Socials />;
             case 'reviews':
                 return <Reviews />;
+            case 'donate':
+                return <Donate />;
             default:
                 return <Error setCurrentComponent={setCurrentComponent} />;
         }
@@ -38,7 +45,7 @@ export function Navigation() {
                 <button className="navigationButton" onClick={() => setCurrentComponent('contactus')}>Contact</button>
                 <button className="navigationButton" onClick={() => setCurrentComponent('socials')}>Socials</button>
                 <button className="navigationButton" onClick={() => setCurrentComponent('reviews')}>Reviews</button>
-
+                <button className="navigationButton" onClick={() => setCurrentComponent('donate')}>Donate</button>
             </nav>
             {renderComponent()}
         </div>
