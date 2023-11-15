@@ -12,10 +12,12 @@ export function Cart(props) {
                         {props.films.map(film => {
                             totalPrice += film.price;
                             return (
-                                <div className="cartItem">
-                                    <h3 className="cartFilmName">{film.name}</h3>
-                                    <h4 className="cartFilmPrice">{film.price}</h4>
-                                </div>
+                                <React.Fragment>
+                                    <div className="cartItem">
+                                        <h3 className="cartFilmName">{film.name}</h3>
+                                        <h4 className="cartFilmPrice">{film.price}</h4>
+                                    </div>
+                                </React.Fragment>
                             )
                         })}
                     </div>
@@ -24,5 +26,4 @@ export function Cart(props) {
             }
         </>
     );
-
 }
